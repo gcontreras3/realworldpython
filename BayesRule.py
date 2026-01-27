@@ -122,9 +122,9 @@ def draw_menu(search_num):
     print(
         """
         Choose next areas to search:
-        1. Search Area 1
-        2. Search Area 2
-        3. Search Area 3
+        1. Search Area 1 Twice
+        2. Search Area 2 Twice
+        3. Search Area 3 Twice
         4. Search Areas 1 & 2
         5. Search Areas 1 & 3
         6. Search Areas 2 & 3
