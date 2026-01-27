@@ -44,16 +44,14 @@ class Search():
 
 def draw_map(self, last_known):
     """Display basemap with scale, last known [x, y] location, search areas."""
-    cv.line(self.img, (20, 270), (70, 370), (0, 0, 0), 2) # Scale bar using line() method pass base map image, a tuple of the left end point, a tuple of the right end point, a tuple of the color in BGR format, and the thickness of the line.
+    cv.line(self.img, (20, 270), (70, 370), (0, 0, 0), 2) # Scale bar using line() method pass base map image, a tuple of the left & right coordinates, a tuple of the color in BGR format, and the thickness of the line.
     cv.putText(self.img, '0', (8, 370), cv.FONT_HERSHEY_PLAIN, 1, (0, 0, 0)) # putText() method to annotate the scale bar, passing the attriute for the base map image, the text to display, a tuple for the bottom-left corner of the text, the font type, font scale, and color in BGR format.
-    cv.putText(self.img, '50 Nautical Miles', (71, 370), cv.FONT_HERSHEY_PLAIN, 1, (0, 0, 0))
+    cv.putText(self.img, '50 Nautical Miles', (71, 370), cv.FONT_HERSHEY_PLAIN, 1, (0, 0, 0)) # Annotate the scale bar with text, passing the attribute for the base map image, the text to display, a tuple for the upper-left corner of the text, the font type, font scale, and color in BGR format.
 
     cv.rectangle(self.img, (SA1_CORNERS[0], SA1_CORNERS[1]), (SA1_CORNERS[2], SA1_CORNERS[3]), (0, 0, 0), 1)
-    
     cv.putText(self.img, '1', (SA1_CORNERS[0] + 3, SA1_CORNERS[1] + 15), cv.FONT_HERSHEY_PLAIN, 1, 0)
 
     cv.rectangle(self.img, (SA2_CORNERS[0], SA2_CORNERS[1]), (SA2_CORNERS[2],  SA2_CORNERS[3]), (0, 0 , 0), 1)
-
     cv.putText(self.img, '2', (SA2_CORNERS[0] + 3, SA2_CORNERS[1] + 15), cv.FONT_HERSHEY_PLAIN, 1, 0)
 
     cv.rectangle(self.img, (SA3_CORNERS[0], SA3_CORNERS[1]), (SA3_CORNERS[2], SA3_CORNERS[3]), (0, 0, 0), 1)
@@ -61,7 +59,6 @@ def draw_map(self, last_known):
 
     cv.putText(self.img, '+', (last_known), cv.FONT_HERSHEY_PLAIN, 1, (0, 0, 255))
     cv.putText(self.img, '+ = Last Known Position', (274, 355), cv.FONT_HERSHEY_PLAIN, 1, (0, 0, 255))
-
     cv.putText(self.img, '* = Actual Position', (275, 370), cv.FONT_HERSHEY_PLAIN, 1, (255, 0, 0))
     
     cv.imshow('Search Area', self.img)
