@@ -54,7 +54,9 @@ class Search():
         cv.putText(self.img, '0', (8, 370), cv.FONT_HERSHEY_PLAIN, 1, (0, 0, 0))
         cv.putText(self.img, '50 Nautical Miles', (71, 370),
                    cv.FONT_HERSHEY_PLAIN, 1, (0, 0, 0))
-
+        
+        if sailor_actual is not None:
+            cv.putText(self.img, '*', (sailor_actual), cv.FONT_HERSHEY_PLAIN, 1, (255, 0, 0))
         # Draw and number the search areas.
         cv.rectangle(self.img, (SA1_CORNERS[0], SA1_CORNERS[1]),
                      (SA1_CORNERS[2], SA1_CORNERS[3]), (0, 0, 0), 1)
@@ -156,8 +158,9 @@ def draw_menu(search_num):
 
 def main():
     app = Search('Cape_Python')
-    app.draw_map(last_known=(160, 290))
     sailor_x, sailor_y = app.sailor_final_location(num_search_areas=3)
+    app.draw_map(last_known=(160, 290), sailor_actual=(sailor_x, sailor_y))
+    
     print("-" * 65)
     print("\nInitial Target (P) Probabilities:")
     print("P1 = {:.3f}, P2 = {:.3f}, P3 = {:.3f}".format(app.p1, app.p2, app.p3))

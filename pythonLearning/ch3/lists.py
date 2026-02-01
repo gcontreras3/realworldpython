@@ -62,4 +62,38 @@ motorcycles.remove('ducati')
 print(motorcycles)
 
 # The remove() method deletes only the first occurrence of the value you specify
+
+# Sorting a List Permanently with the sort() Method, sort them alphabetically
+cars = ['bmw', 'audi', 'toyota', 'subaru']
+cars.sort()
+print(cars)
+# You can also sort the list in reverse alphabetical order by passing the argument reverse=True to the sort() method
+cars.sort(reverse=True)
+print(cars)
+
+print("Here is the original list: ")
+print(cars)
+
+print("\nHere is the sorted list: ")
+print(sorted(cars))
+
+# printing a list in reverse order
+
+cars = ['bmw', 'audi', 'toyota', 'subaru']
+cars.reverse()
+print(cars)
+
+# Finding the length of a list
+print(len(cars))
+
+"""You’ll find len() useful when you need to identify the number of aliens
+that still need to be shot down in a game, determine the amount of data
+you have to manage in a visualization, or figure out the number of regis-
+tered users on a website, among other tasks. """
+
+
+
+
+
+
 # Chapter 7 Loops
